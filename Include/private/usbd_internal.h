@@ -35,6 +35,7 @@ extern "C"
 /* strlen(), memcpy() */
 #include <string.h>
 
+
 /** @ingroup USBD
  * @addtogroup USBD_Internal_Functions
  * @{ */
@@ -186,9 +187,28 @@ static inline void USBD_EpClearStall    (USBD_HandleType *dev,
 #ifdef __htons
 #define htons(_x)                       __htons(_x)
 #endif
-#define ntohl(_x)                       htonl(_x)
-#define ntohs(_x)                       htons(_x)
 
+#ifndef htons
+#  define htons(n) (((((uint16_t)(n) & 0xFF)) << 8) | (((uint16_t)(n) & 0xFF00) >> 8))
+#endif
+
+#ifndef ntohs
+#  define ntohs(n) (((((uint16_t)(n) & 0xFF)) << 8) | (((uint16_t)(n) & 0xFF00) >> 8))
+#endif
+
+#ifndef htonl
+#  define htonl(n) (((((uint32_t)(n) & 0xFF)) << 24) | \
+                  ((((uint32_t)(n) & 0xFF00)) << 8) | \
+                  ((((uint32_t)(n) & 0xFF0000)) >> 8) | \
+                  ((((uint32_t)(n) & 0xFF000000)) >> 24))
+#endif
+
+#ifndef ntohl
+#  define ntohl(n) (((((uint32_t)(n) & 0xFF)) << 24) | \
+                  ((((uint32_t)(n) & 0xFF00)) << 8) | \
+                  ((((uint32_t)(n) & 0xFF0000)) >> 8) | \
+                  ((((uint32_t)(n) & 0xFF000000)) >> 24))
+#endif
 
 #ifdef __cplusplus
 }
