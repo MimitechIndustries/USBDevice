@@ -27,7 +27,7 @@
 #include <usb_types.h>
 #include <usbd_config.h>
 #include <usb_microsoft_os.h>
-#include <usbd_pd_def.h>
+#include "usbd_pd_def.h"
 
 /** @ingroup USB
  * @defgroup USBD USB Device
