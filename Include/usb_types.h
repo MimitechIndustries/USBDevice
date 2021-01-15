@@ -64,7 +64,7 @@ extern "C"
 #endif
 
 /* The current implementation is based on USB release 2.00 */
-#define USB_SPEC_BCD                    0x0200
+#define USB_SPEC_BCD                    0x0110
 
 /* USB standard features */
 #define USB_FEATURE_EP_HALT             0
