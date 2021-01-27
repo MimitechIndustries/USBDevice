@@ -55,6 +55,17 @@ USBD_ReturnType USBD_EpSend(USBD_HandleType *dev, uint8_t epAddr,
     return retval;
 }
 
+
+USBD_ReturnType USBD_EpSend_Gigabrain(USBD_HandleType *dev, uint8_t epAddr, struct usb_ring_buffer* ring_buff) {
+    USBD_EpHandleType *ep = &dev->EP.IN[epAddr & 0xF];
+
+	ep->State = USB_EP_STATE_DATA;
+	ep->ring_buffer = ring_buff;
+	USBD_PD_EpSend_Gigabrain(dev, epAddr);
+
+    return USBD_E_OK;
+}
+
 /**
  * @brief This function prepares data reception through the selected OUT endpoint.
  * @param dev: USB Device handle reference

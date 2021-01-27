@@ -48,6 +48,7 @@ extern "C"
 #define USBD_PD_EpOpen                  USB_vEpOpen
 #define USBD_PD_EpClose                 USB_vEpClose
 #define USBD_PD_EpSend                  USB_vEpSend
+#define USBD_PD_EpSend_Gigabrain        USB_vEpSend_Gigabrain
 #define USBD_PD_EpReceive               USB_vEpReceive
 #define USBD_PD_EpSetStall              USB_vEpSetStall
 #define USBD_PD_EpClearStall            USB_vEpClearStall

@@ -82,8 +82,8 @@ extern "C"
 #define USB_EP_INTR_FS_MPS              64
 #define USB_EP_INTR_LS_MPS              8
 
-#define USB_EP_CTRL_HS_MPS              64
-#define USB_EP_CTRL_FS_MPS              64
+#define USB_EP_CTRL_HS_MPS              32
+#define USB_EP_CTRL_FS_MPS              32
 #define USB_EP_CTRL_LS_MPS              8
 
 #define USB_EP0_HS_MAX_PACKET_SIZE      USB_EP_CTRL_HS_MPS
@@ -238,7 +238,7 @@ typedef PACKED(struct)
     uint8_t  bDescriptorType;       /*!< Device Descriptor (0x01) */
     uint16_t bcdUSB;                /*!< USB Specification Number which device complies to */
     uint8_t  bDeviceClass;          /*!< Class Code (Assigned by USB Org)
-                                        If equal to Zero, each interface specifies it’s own class code
+                                        If equal to Zero, each interface specifies itï¿½s own class code
                                         If equal to 0xFF, the class code is vendor specified.
                                         Otherwise field is valid Class Code. */
     uint8_t  bDeviceSubClass;       /*!< Subclass Code (Assigned by USB Org) */
@@ -323,7 +323,7 @@ typedef PACKED(struct)
     uint8_t  bDescriptorType;       /*!< Device Qualifier Descriptor (0x06) */
     uint16_t bcdUSB;                /*!< USB Specification Number which device complies to */
     uint8_t  bDeviceClass;          /*!< Class Code (Assigned by USB Org)
-                                        If equal to Zero, each interface specifies it’s own class code
+                                        If equal to Zero, each interface specifies itï¿½s own class code
                                         If equal to 0xFF, the class code is vendor specified.
                                         Otherwise field is valid Class Code. */
     uint8_t  bDeviceSubClass;       /*!< Subclass Code (Assigned by USB Org) */

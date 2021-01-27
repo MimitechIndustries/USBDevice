@@ -183,6 +183,26 @@ typedef struct
 }USBD_DescriptionType;
 
 
+struct usb_transfer {
+	uint8_t *buffer;
+	uint32_t size;
+	uint32_t pending;
+};
+
+struct usb_ring_buffer {
+	uint32_t head;
+	uint32_t head_IF;
+	uint32_t tail;
+	uint32_t dest_buff_i; //
+
+	uint32_t size;
+	uint32_t count_segments;
+	uint32_t count_IF; // Number of transfers submitted to the USB peripheral
+	uint32_t completion_flag;
+
+	struct usb_transfer* transfers;
+};
+
 /** @brief USB endpoint handle structure */
 typedef struct
 {
@@ -198,6 +218,7 @@ typedef struct
 #ifdef USBD_PD_EP_FIELDS
     USBD_PD_EP_FIELDS;                  /*!< Peripheral Driver specific endpoint context */
 #endif
+    struct usb_ring_buffer* ring_buffer;
 }USBD_EpHandleType;
 
 

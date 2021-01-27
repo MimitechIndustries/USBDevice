@@ -82,7 +82,7 @@ static void console_if_recv         (void);
 
 static const USBD_CDC_AppType console_app =
 {
-    .Name           = "Serial port as standard I/O",
+    .Name           = "Serial por|t as standard I/O",
     .Open           = console_if_open,
 #if (STDIN_BUFFER_SIZE > 0)
     .Received       = console_if_out_cmplt,

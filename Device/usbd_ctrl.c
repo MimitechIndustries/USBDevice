@@ -136,7 +136,7 @@ void USBD_CtrlOutCallback(USBD_HandleType *dev)
  * @brief This function sends data through the control endpoint in response to a setup request.
  * @param dev: USB Device handle reference
  * @param data: pointer to the data to send
- * @param len: length of the data
+ * @param len: length of the data+
  * @return OK if called from the right context, ERROR otherwise
  */
 USBD_ReturnType USBD_CtrlSendData(USBD_HandleType *dev, void *data, uint16_t len)
